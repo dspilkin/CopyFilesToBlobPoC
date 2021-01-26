@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 100 
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - name: worker
+        image: [ACR IMAGE]
+        env:
+          - name: QueueName
+            value: fnfimageprocessingqueue 
+          - name: StorageQueueConnectionString #Storage connection string
+            value: [STORAGE ACCOUNT TO STORAGE QUEUE CONNECTION STRING]
+          - name: SqlConnectionString
+            value: [sql connection string]
+         
+          - name: MaxDegreeParallelism
+            value: "2"
+
+          #config for download and upload   
+          - name: DestinationBlobContainerConnectionString 
+            value: [DESTINATION BLOB CONNECTION STRING]
+          - name: SourceFileShareConnectionString
+            value: [SOURCE AZURE FILES CONNECTION STRING]
+          - name: SourceFileShareName
+            value: databoxfiles
+          - name: SourceFileShareDirectory
+            value: Files180Random
+          - name: destinationBlobContainerFolder
+            value: MigratedImages6/
+
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "20m"

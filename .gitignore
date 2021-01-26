@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/fnfimageprocessing_AKS_Container_queues/DesignTimeBuild/.dtbcache.v2
+/.vs/fnfimageprocessing_AKS_Container_queues/v16/.suo
+/fnfimageprocessing_AKS_Container_queues/appsettings.json

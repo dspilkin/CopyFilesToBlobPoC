@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "fnfimageprocessing_AKS_Container_queues": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

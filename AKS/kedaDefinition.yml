@@ -1,0 +1,28 @@
+# apiVersion: keda.sh/v1alpha1
+# kind: ScaledObject
+# metadata:
+#   name: azure-queue-scaledobject
+#   namespace: default
+# spec:
+#         # describes the [job template](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/)
+#   pollingInterval: 4                         # Optional. Default: 30 seconds
+#   cooldownPeriod:  300 # Optional. Default: 300 seconds
+#  # successfulJobsHistoryLimit: 5               # Optional. Default: 100. How many completed jobs should be kept.
+#  # failedJobsHistoryLimit: 5                   # Optional. Default: 100. How many failed jobs should be kept.
+#   #envSourceContainerName: {container-name}    # Optional. Default: .spec.JobTargetRef.template.spec.containers[0]
+#   maxReplicaCount: 48                   # Optional. Default: 100
+
+#   scaleTargetRef:
+#     name: worker
+#   triggers:
+#   - type: azure-queue
+#     metadata:
+#       # Required
+#       queueName: fnfimageprocessingqueue
+#       # Required: connection OR authenticationRef that defines connection
+#       connectionFromEnv: StorageQueueConnectionString # Default: AzureWebJobsStorage. Reference to a connection string in deployment
+#       # or authenticationRef as defined below
+#       #
+#       # Optional
+#       queueLength: "50" # default 5
+   
